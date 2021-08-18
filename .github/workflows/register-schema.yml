@@ -17,7 +17,7 @@ jobs:
     - name: Checkout twist-kafka
       uses: actions/checkout@v2
       with:
-        repository: pgupta-twistbioscience/twist-kafka 
+        repository: Twistbioscience/twist-kafka 
     - name: Set up twist-kafka
       uses: actions/setup-python@v2
       with:
