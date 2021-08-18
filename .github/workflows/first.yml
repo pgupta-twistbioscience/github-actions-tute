@@ -4,5 +4,4 @@ jobs:
   Say-Hello:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: /bin/bash echo "hello"
+      - run: echo "hello"
