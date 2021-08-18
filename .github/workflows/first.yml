@@ -1,0 +1,11 @@
+name: first
+
+on: push
+
+jobs:
+  name: Say Hello
+  runs-on: ubuntu-latest
+  steps:
+    - name: Say Hello
+    - uses: actions/checkout@v2
+    
