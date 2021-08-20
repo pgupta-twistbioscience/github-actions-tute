@@ -1,0 +1,13 @@
+name: Workflow to test detection of checkins to a folder
+
+on:
+  push:
+    paths:
+      - 'folder'
+
+jobs:
+  say-folder-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Echo running on push to folder'
+    
