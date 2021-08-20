@@ -3,7 +3,7 @@ name: Workflow to test detection of checkins to a dir
 on:
   push:
     paths:
-      - 'dir'
+      - 'dir/*'
 
 jobs:
   say-folder-name:
