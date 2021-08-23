@@ -15,9 +15,9 @@ jobs:
         with:
           filters: |
             f1:
-              - 'dir/*'
+              - 'dir/**'
           list-files: 'csv'
       - name: trigger print
         if: steps.filter-files.outputs.f1 == 'true'
-        run: echo "changed files ${f1}_files"
+        run: echo "changed files"
 
