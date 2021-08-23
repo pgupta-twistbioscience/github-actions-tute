@@ -10,5 +10,5 @@ jobs:
     name: Say Name of file checked in
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'Echo running on push to $GITHUB_EVENT_PATH"
+      - run: echo "Echo running on push to $GITHUB_EVENT_PATH"
 
