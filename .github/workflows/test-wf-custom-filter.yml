@@ -1,0 +1,22 @@
+name: Workflow to test detection of checkins to a dir using actions
+
+on:
+  push
+
+jobs:
+  say-file-name-actions:
+    name: Say Name of file checked in
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Latest commit from current branch
+        uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: changed-files
+        with:
+          filters: |
+            dir:
+              - 'dir/*'
+      - name: trigger print
+        if: steps.changed-files.putputs.dir == 'true'
+        run: echo "Echo running on push"
+
