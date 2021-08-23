@@ -11,12 +11,13 @@ jobs:
       - name: Checkout Latest commit from current branch
         uses: actions/checkout@v2
       - uses: dorny/paths-filter@v2
-        id: changed-files
+        id: filter-files
         with:
           filters: |
-            dir:
+            f1:
               - 'dir/*'
+          list-files: 'csv'
       - name: trigger print
-        if: steps.changed-files.putputs.dir == 'true'
-        run: echo "Echo running on push"
+        if: steps.filter-files.outputs.f1 == 'true'
+        run: echo "changed files ${f1}_files"
 
