@@ -7,8 +7,8 @@ on:
 jobs:
   check-environment-qa:
     name: Get envrionment name from branch name qa
-    environment: QA
     if: ${{ github.base_ref == 'refs/heads/qa' }}
+    environment: QA
     runs-on: ubuntu-latest
     steps:
       - run: echo "Running on pr to QA"
