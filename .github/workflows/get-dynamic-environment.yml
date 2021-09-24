@@ -8,14 +8,16 @@ jobs:
   check-environment-qa:
     name: Get envrionment name from branch name
     environment: QA
-    if: github.base_ref == 'refs/heads/qa'
+    #if: github.base_ref == 'refs/heads/qa'
+    if: github.event.pull_request.head.ref == 'qa'
     runs-on: ubuntu-latest
     steps:
       - run: echo "Running on pr to QA"
   check-environment-staging:
     name: Get envrionment name from branch name
     environment: Staging
-    if: github.base_ref == 'refs/heads/staging'
+    #if: github.base_ref == 'refs/heads/staging'
+    if: github.event.pull_request.head.ref == 'staging'
     runs-on: ubuntu-latest
     steps:
       - run: echo "Running on pr to Staging"
