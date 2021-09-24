@@ -1,0 +1,21 @@
+name: Workflow to check if environment can be extracted dynamically
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+    branches: [qa, staging]
+jobs:
+  check-environment-qa:
+    name: Get envrionment name from branch name
+    environment: QA
+    if: github.base_ref == 'refs/heads/qa'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Running on pr to QA"
+  check-environment-staging:
+    name: Get envrionment name from branch name
+    environment: Staging
+    if: github.base_ref == 'refs/heads/staging'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Running on pr to Staging"
