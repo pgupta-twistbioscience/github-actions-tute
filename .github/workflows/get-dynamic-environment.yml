@@ -1,8 +1,9 @@
 name: Workflow to check if environment can be extracted dynamically
 
 on:
-  pull_request:
-    types: [opened, edited, reopened, synchronize]
+  push:
+  #pull_request:
+  #  types: [opened, edited, reopened, synchronize]
     branches: [qa, staging]
 jobs:
   check-environment-qa:
