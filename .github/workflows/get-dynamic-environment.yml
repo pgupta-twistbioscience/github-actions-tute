@@ -9,7 +9,7 @@ jobs:
   check-environment-qa:
     name: Get envrionment name from branch name qa
     environment: QA
-    if: ${{ github.event.base_ref == 'refs/heads/qa' }}
+    if: github.base_ref == 'refs/heads/qa'
     #if: ${{ github.event.ref == 'refs/heads/qa' }}
     runs-on: ubuntu-latest
     steps:
