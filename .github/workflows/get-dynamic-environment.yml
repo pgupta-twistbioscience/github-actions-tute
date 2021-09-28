@@ -15,8 +15,8 @@ jobs:
     steps:
       - name: step1
         id: step1
-        run: echo "::set-output name=saved-env::qa"
-        #run: if [ $github.event.ref == 'refs/heads/qa' ]; then github.event.ref; fi;
+        #run: echo "::set-output name=saved-env::staging"
+        run: if ${{github.event.ref == 'refs/heads/qa'}}; then echo "::set-output name=saved-env::qa"; fi;
 
   check-environment-qa:
     name: Get envrionment name from branch name qa
