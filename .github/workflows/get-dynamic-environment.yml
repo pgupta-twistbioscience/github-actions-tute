@@ -32,7 +32,7 @@ jobs:
     environment: QA
     #if: github.event.pull_request.base.ref == 'qa'
     #if: ${{ github.event.ref == 'refs/heads/qa' }}
-    if: ${{needs.determine-env.outputs.saved-env == 'qa'}}
+    if: needs.determine-env.outputs.saved-env == 'qa'
     steps:
       - run: echo "Running on pr to QA"
 
