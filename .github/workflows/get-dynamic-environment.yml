@@ -16,8 +16,7 @@ jobs:
       - name: step1
         id: step1
         #run: echo "::set-output name=saved-env::staging"
-        run: |
-        echo "::set-output name=saved-env::${{ (github.event.ref == 'refs/heads/qa' && 'qa') || 'staging'}}"
+        run: echo "::set-output name=saved-env::${{ (github.event.ref == 'refs/heads/qa' && 'qa') || 'staging'}}"
         #echo ${{outputs.saved-env}}
 
   check-environment-qa:
