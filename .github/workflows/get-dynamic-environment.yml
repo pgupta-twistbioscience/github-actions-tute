@@ -18,7 +18,7 @@ jobs:
         #run: echo "::set-output name=saved-env::staging"
         run: |
         echo "::set-output name=saved-env::${{ (github.event.ref == 'refs/heads/qa' && 'qa') || 'staging'}}"
-        echo ${{outputs.saved-env}}
+        #echo ${{outputs.saved-env}}
 
   check-environment-qa:
     name: Get envrionment name from branch name qa
