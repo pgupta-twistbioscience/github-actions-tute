@@ -18,10 +18,10 @@ jobs:
         #run: echo "::set-output name=saved-env::staging"
         run: |
         if [[ "${{ github.event.ref }}" == 'refs/heads/qa' ]]; then
-          echo "::set-output name=saved-env::'qa'"
+          echo "::set-output name=saved-env::qa"
         fi
         if [[ "${{ github.event.ref }}" == 'refs/heads/staging' ]]; then
-          echo "::set-output name=saved-env::'staging'"
+          echo "::set-output name=saved-env::staging"
         fi
 
 
