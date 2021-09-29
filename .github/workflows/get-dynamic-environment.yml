@@ -16,14 +16,14 @@ jobs:
       - name: step1
         id: step1
         #run: echo "::set-output name=saved-env::staging"
-        run: |
-          if [[ "${{ github.event.ref }}" == "refs/heads/qa" ]]; then
-            echo "::set-output name=saved-env::qa"
-          fi
-          if [[ "${{ github.event.ref }}" == "refs/heads/staging" ]]; then
-            echo "::set-output name=saved-env::staging"
-          fi
-
+        #run: |
+#          if [[ "${{ github.event.ref }}" == "refs/heads/qa" ]]; then
+#            echo "::set-output name=saved-env::qa"
+#          fi
+#          if [[ "${{ github.event.ref }}" == "refs/heads/staging" ]]; then
+#            echo "::set-output name=saved-env::staging"
+#          fi
+        run: echo "::set-output name=saved-env::\"${{ github.event.ref }}\""
 
   check-environment-qa:
     name: Get envrionment name from branch name qa
@@ -32,7 +32,7 @@ jobs:
     environment: QA
     #if: github.event.pull_request.base.ref == 'qa'
     #if: ${{ github.event.ref == 'refs/heads/qa' }}
-    if: needs.determine-env.outputs.saved-env == 'qa'
+    if: needs.determine-env.outputs.saved-env == 'refs/heads/qa'
     steps:
       - run: echo "Running on pr to QA"
 
@@ -43,6 +43,6 @@ jobs:
     environment: Staging
     #if: ${{ github.event.base_ref == 'refs/heads/staging' }}
     #if: ${{ github.event.ref == 'refs/heads/staging' }}
-    if: ${{needs.determine-env.outputs.saved-env == 'staging'}}
+    if: ${{needs.determine-env.outputs.saved-env == 'refs/heads/staging'}}
     steps:
       - run: echo "Running on pr to Staging"
