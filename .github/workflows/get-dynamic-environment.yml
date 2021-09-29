@@ -4,7 +4,7 @@ on:
   push:
   #pull_request:
     #types: [opened, edited, reopened, synchronize]
-    branches: [qa, staging]
+    branches: [test-push-event-on-pr-merge]
 
 jobs:
   determine-env:
