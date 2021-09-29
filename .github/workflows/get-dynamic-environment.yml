@@ -4,7 +4,7 @@ on:
   push:
   #pull_request:
     #types: [opened, edited, reopened, synchronize]
-    branches: [qa]
+    branches: [qa, staging]
 
 jobs:
   determine-env:
