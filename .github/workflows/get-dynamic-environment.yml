@@ -35,6 +35,13 @@ jobs:
     if: needs.determine-env.outputs.saved-env == 'refs/heads/qa'
     steps:
       - run: echo "Running on pr to QA"
+      - name: Checkout github-actions-tute
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      - run: python scripts/hello.py
 
   check-environment-staging:
     name: Get envrionment name from branch name staging
